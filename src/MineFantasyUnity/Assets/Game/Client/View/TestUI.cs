@@ -1,12 +1,8 @@
 using Mine.Core;
-using System;
-using System.Net;
 using TMPro;
 using Unity.Entities;
 using Unity.Networking.Transport;
-using Unity.Networking.Transport.Relay;
 using UnityEngine;
-using UnityEngine.Profiling;
 using UnityEngine.UI;
 
 namespace Mine.Client.View

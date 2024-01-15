@@ -1,8 +1,5 @@
-using System.Collections;
-using System.Collections.Generic;
 using Unity.Entities;
 using Unity.NetCode;
-using UnityEngine;
 
 namespace Mine.Core
 {
@@ -10,7 +7,7 @@ namespace Mine.Core
     public partial class MineInitGruop : ComponentSystemGroup { }
 
     [UpdateInGroup(typeof(PresentationSystemGroup))]
-    public partial class MinePresentationGroup : ComponentSystemGroup { }
+    public partial class MineViewGroup : ComponentSystemGroup { }
 
     [UpdateInGroup(typeof(GhostInputSystemGroup))]
     public partial class MineInputGroup : ComponentSystemGroup { }

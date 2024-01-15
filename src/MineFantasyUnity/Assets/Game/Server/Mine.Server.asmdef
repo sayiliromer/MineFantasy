@@ -1,0 +1,23 @@
+{
+    "name": "Mine.Server",
+    "rootNamespace": "Mine.Server",
+    "references": [
+        "GUID:fece2628a151b1446a1be2c7e8785729",
+        "GUID:734d92eba21c94caba915361bd5ac177",
+        "GUID:d8b63aba1907145bea998dd612889d6b",
+        "GUID:953adc2a6b8b4e3c8df5b728bcd546e9",
+        "GUID:e0cd26848372d4e5c891c569017e11f1",
+        "GUID:3d0e2b0827d880b4ca43c6e7c8b81a1d",
+        "GUID:fa97976877600314091a386d2a8a6fb3",
+        "GUID:a5baed0c9693541a5bd947d336ec7659"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

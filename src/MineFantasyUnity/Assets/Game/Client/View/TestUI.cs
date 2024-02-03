@@ -24,8 +24,6 @@ namespace Mine.Client.View
             DisconnectButton.onClick.AddListener(Disconnect);
         }
 
-
-
         private void Update()
         {
             var serverWorld = EcsUtility.GetWorld(WorldFlags.GameServer);

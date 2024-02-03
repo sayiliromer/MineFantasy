@@ -1,13 +1,12 @@
 ﻿using Mine.Core;
 using Unity.Entities;
 using Unity.Scenes;
-using UnityEngine;
 using Hash128 = Unity.Entities.Hash128;
 
 namespace Mine.ClientServer
 {
     [WorldSystemFilter(WorldFilters.ClientServer)]
-    [UpdateInGroup(typeof(MineInitGruop))]
+    [UpdateInGroup(typeof(InitGruop))]
     public partial struct LoadPrefabWorldSystem : ISystem
     {
         public void OnUpdate(ref SystemState state)

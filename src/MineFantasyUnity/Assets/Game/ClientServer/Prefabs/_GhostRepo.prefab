@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 8203919477501508251}
   - component: {fileID: 926299732304437276}
   m_Layer: 0
-  m_Name: Repo_Ghost
+  m_Name: _GhostRepo
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -45,4 +45,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   NetworkedCube: {fileID: 7156841231096996376, guid: f102cdc214bab5e46a4a1f95bff3d3c6,
+    type: 3}
+  ChunkyObject: {fileID: 7156841231096996376, guid: ee86198e7a487314fadbc1cca8b24faf,
+    type: 3}
+  FloatStats: {fileID: 6626459829459770893, guid: 4aa2610cd74230948b87d9a39acbcfc7,
+    type: 3}
+  Unit: {fileID: 7156841231096996376, guid: 11a887a99c31f184dae75011f71c6bbd, type: 3}
+  UnitWithStat: {fileID: 7156841231096996376, guid: 0d40e5e9f7a871147a7788d50f4869fa,
     type: 3}

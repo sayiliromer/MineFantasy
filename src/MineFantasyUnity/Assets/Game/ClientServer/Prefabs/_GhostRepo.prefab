@@ -46,10 +46,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   NetworkedCube: {fileID: 7156841231096996376, guid: f102cdc214bab5e46a4a1f95bff3d3c6,
     type: 3}
-  ChunkyObject: {fileID: 7156841231096996376, guid: ee86198e7a487314fadbc1cca8b24faf,
+  PlayerUnit: {fileID: 865576503447388002, guid: a00bee42598e54141a5e12a2f3839ac2,
     type: 3}
-  FloatStats: {fileID: 6626459829459770893, guid: 4aa2610cd74230948b87d9a39acbcfc7,
-    type: 3}
-  Unit: {fileID: 7156841231096996376, guid: 11a887a99c31f184dae75011f71c6bbd, type: 3}
-  UnitWithStat: {fileID: 7156841231096996376, guid: 0d40e5e9f7a871147a7788d50f4869fa,
+  PlayerUnitB: {fileID: 865576503447388002, guid: d647004a41f7b4a43998929687f658e6,
     type: 3}

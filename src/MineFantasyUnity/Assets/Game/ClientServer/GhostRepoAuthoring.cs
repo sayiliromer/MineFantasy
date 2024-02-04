@@ -6,13 +6,13 @@ namespace Mine.ClientServer
     public struct GhostRepo : IComponentData
     {
         public Entity NetworkedCube;
-        public Entity Unit;
+        public Entity PlayerUnit;
     }
 
     public class GhostRepoAuthoring : MonoBehaviour
     {
         public GameObject NetworkedCube;
-        public GameObject UnitWithStat;
+        public GameObject PlayerUnit;
 
         public class Baker : Baker<GhostRepoAuthoring>
         {

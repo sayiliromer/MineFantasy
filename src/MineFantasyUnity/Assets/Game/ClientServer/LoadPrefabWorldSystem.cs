@@ -6,7 +6,7 @@ using Hash128 = Unity.Entities.Hash128;
 namespace Mine.ClientServer
 {
     [WorldSystemFilter(WorldFilters.ClientServer)]
-    [UpdateInGroup(typeof(InitGruop))]
+    [UpdateInGroup(typeof(InitGroup))]
     public partial struct LoadPrefabWorldSystem : ISystem
     {
         public void OnUpdate(ref SystemState state)

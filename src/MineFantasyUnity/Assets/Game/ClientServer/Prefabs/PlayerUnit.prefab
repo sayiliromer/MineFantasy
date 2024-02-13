@@ -173,7 +173,7 @@ MonoBehaviour:
   HasOwner: 1
   SupportAutoCommandTarget: 1
   TrackInterpolationDelay: 0
-  GhostGroup: 1
+  GhostGroup: 0
   UsePreSerialization: 0
 --- !u!114 &4518322335463221685
 MonoBehaviour:
@@ -187,6 +187,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f78e856060cc4d86969f8ee825b2a910, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Hp: 100
+  HpRegen: 5
+  MoveSpeed: 5
 --- !u!1 &3585634327031093657
 GameObject:
   m_ObjectHideFlags: 0

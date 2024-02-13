@@ -18,7 +18,7 @@ namespace Mine.ClientServer
         }
         
         [BurstCompile]
-        [WithAny(typeof(Simulate))]
+        [WithAll(typeof(Simulate))]
         private partial struct HealthRegenJob : IJobEntity
         {
             private readonly float _dt;
@@ -41,6 +41,10 @@ namespace Mine.ClientServer
         }
     }
 
+    public interface IDynamicStatComponent : IStatComponent
+    {
+    }
+    
     public interface IStatComponent : IComponentData
     {
     }
@@ -62,7 +66,7 @@ namespace Mine.ClientServer
     }
 
     /// <summary>
-    /// Used as wrapper wrapper for other stats
+    /// Used as wrapper for other stats to make it easy to calculate final value
     /// </summary>
     public struct Stat
     {
@@ -72,49 +76,50 @@ namespace Mine.ClientServer
     }
     
     [StructLayout(LayoutKind.Sequential)]
-    public struct Health : IStatComponent
+    public struct Health : IDynamicStatComponent
     {
-        public float Base;
+        public float BaseValue;
         [GhostField] public float Add, Mul;
         [GhostField] public float Current;
-        public Health(float @base) : this()
+        public Health(float baseValue) : this()
         {
-            Base = @base;
+            BaseValue = baseValue;
+            Current = baseValue;
         }
     }
 
     [StructLayout(LayoutKind.Sequential)]
     public struct HealthRegen : IStatComponent
     {
-        public float Base;
+        public float BaseValue;
         [GhostField] public float Add, Mul;
-        public HealthRegen(float @base) : this()
+        public HealthRegen(float baseValue) : this()
         {
-            Base = @base;
+            BaseValue = baseValue;
         }
     }
 
     [StructLayout(LayoutKind.Sequential)]
     public struct MoveSpeed : IStatComponent
     {
-        public float Base;
+        public float BaseValue;
         [GhostField] public float Add, Mul;
         
-        public MoveSpeed(float @base) : this()
+        public MoveSpeed(float baseValue) : this()
         {
-            Base = @base;
+            BaseValue = baseValue;
         }
     }
 
     [StructLayout(LayoutKind.Sequential)]
     public struct Luck : IStatComponent
     {
-        public float Base;
+        public float BaseValue;
         [GhostField] public float Add, Mul;
         
-        public Luck(float @base) : this()
+        public Luck(float baseValue) : this()
         {
-            Base = @base;
+            BaseValue = baseValue;
         }
     }
 

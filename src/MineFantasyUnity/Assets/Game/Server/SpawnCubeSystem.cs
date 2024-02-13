@@ -24,19 +24,20 @@ namespace Mine.Server
                 state.EntityManager.SetComponentData(entity, LocalTransform.FromPosition(i * 2, 0, 0));
             }
 
-            var size = 1000;
-            for (int y = 0; y < size; y++)
-            {
-                for (int x = 0; x < size; x++)
-                {
-                    var entity1 = state.EntityManager.Instantiate(repo.UnitStats);
-                    state.EntityManager.SetComponentData(entity1, LocalTransform.FromPosition(x * 2, 0, y * 2));
-                    // state.EntityManager.SetComponentData(entity1, new GhostOwner()
-                    // {
-                    //     NetworkId = -1
-                    // });
-                }
-            }
+            
+            // var size = 10;
+            // for (int y = 0; y < size; y++)
+            // {
+            //     for (int x = 0; x < size; x++)
+            //     {
+            //         var entity1 = state.EntityManager.Instantiate(repo.UnitStats);
+            //         state.EntityManager.SetComponentData(entity1, LocalTransform.FromPosition(x * 2, 0, y * 2));
+            //         // state.EntityManager.SetComponentData(entity1, new GhostOwner()
+            //         // {
+            //         //     NetworkId = -1
+            //         // });
+            //     }
+            // }
             state.Enabled = false;
         }
     }

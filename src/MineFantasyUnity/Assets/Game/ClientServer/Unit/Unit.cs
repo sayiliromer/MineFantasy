@@ -1,4 +1,5 @@
-﻿using Mine.Core;
+﻿using System.Data;
+using Mine.Core;
 using Unity.Burst;
 using Unity.Entities;
 using Unity.Mathematics;
@@ -21,7 +22,7 @@ namespace Mine.ClientServer
         private readonly DynamicBuffer<FloatStaticStat> _staticStats;
         private readonly RefRO<HealthMarker> _health;
         private readonly RefRO<MoveSpeedMarker> _moveSpeed;
-
+        
         public float Health
         {
             get => _dynamicStats[_health.ValueRO.DynamicIndex].Value;

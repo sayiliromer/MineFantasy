@@ -2,14 +2,14 @@
 {
     public static class UnsafeExtensions
     {
-        public unsafe static TResult ReinterpretCast<TResult>(this int original) where TResult : unmanaged
+        public static unsafe TResult ReinterpretCast<TResult>(this int original) where TResult : unmanaged
         {
-            return *(TResult*)(void*)&original;
+            return *(TResult*)&original;
         }
 
-        public unsafe static TResult ReinterpretCast<TOriginal, TResult>(this TOriginal original) where TOriginal : unmanaged where TResult : unmanaged
+        public static unsafe TResult ReinterpretCast<TOriginal, TResult>(this TOriginal original) where TOriginal : unmanaged where TResult : unmanaged
         {
-            return *(TResult*)(void*)&original;
+            return *(TResult*)&original;
         }
     }
 }

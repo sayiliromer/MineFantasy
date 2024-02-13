@@ -48,5 +48,7 @@ MonoBehaviour:
     type: 3}
   PlayerUnit: {fileID: 865576503447388002, guid: a00bee42598e54141a5e12a2f3839ac2,
     type: 3}
-  PlayerUnitB: {fileID: 865576503447388002, guid: d647004a41f7b4a43998929687f658e6,
+  StatUnit: {fileID: 7830176700650703944, guid: b037d72d6a625c34996e21a53a982b05,
+    type: 3}
+  UnitStats: {fileID: 7830176700650703944, guid: c74dfe897f8cb734f9ea7cca26db03c9,
     type: 3}

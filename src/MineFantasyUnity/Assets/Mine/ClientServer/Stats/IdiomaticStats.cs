@@ -66,7 +66,7 @@ namespace Mine.ClientServer
     }
 
     /// <summary>
-    ///     Used as wrapper for other stats to make it easy to calculate final value
+    /// Used as wrapper for other stats to make it easy to calculate final value
     /// </summary>
     public struct Stat
     {

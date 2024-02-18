@@ -11,12 +11,6 @@ namespace Mine.ClientServer
     {
     }
 
-    public struct UnitInput : IInputComponentData
-    {
-        [GhostField] public float2 Direction;
-        [GhostField] public float2 TargetPosition;
-    }
-
     [BurstCompile]
     [UpdateInGroup(typeof(PredictedSimulationSystemGroup))]
     [WorldSystemFilter(WorldFilters.ClientServer)]
@@ -39,9 +33,9 @@ namespace Mine.ClientServer
                 _dt = dt;
             }
 
-            private void Execute(in MoveSpeed speed, in UnitInput input, ref LocalTransform transform)
+            private void Execute(in MoveSpeedStat speed, in PlayerInput input, ref LocalTransform transform)
             {
-                var delta = _dt * speed.ToFinalValue() * input.Direction;
+                var delta = _dt * speed.Value.ToFinalValue() * input.Direction;
                 transform.Position += new float3(delta.x, 0, delta.y);
             }
         }

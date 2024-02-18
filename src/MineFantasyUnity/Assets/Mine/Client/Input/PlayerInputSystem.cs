@@ -30,7 +30,7 @@ namespace Mine.Client
                 _dir = dir;
             }
 
-            private void Execute(ref UnitInput input)
+            private void Execute(ref PlayerInput input)
             {
                 input.Direction = _dir;
             }

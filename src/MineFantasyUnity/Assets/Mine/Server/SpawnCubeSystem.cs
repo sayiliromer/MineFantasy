@@ -5,6 +5,7 @@ using Unity.Transforms;
 
 namespace Mine.Server
 {
+    
     [WorldSystemFilter(WorldFilters.Server)]
     public partial struct SpawnCubeSystem : ISystem
     {
@@ -17,13 +18,18 @@ namespace Mine.Server
         {
             var repo = SystemAPI.GetSingleton<GhostRepo>();
 
-            for (var i = 0; i < 1; i++)
-            {
-                var entity = state.EntityManager.Instantiate(repo.NetworkedCube);
-                state.EntityManager.SetComponentData(entity, LocalTransform.FromPosition(i * 2, 0, 0));
-            }
+            // for (var i = 0; i < 1; i++)
+            // {
+            //     var entity = state.EntityManager.Instantiate(repo.NetworkedCube);
+            //     state.EntityManager.SetComponentData(entity, LocalTransform.FromPosition(i * 2, 0, 0));
+            // }
 
-
+            
+            // for (int i = 0; i < 10; i++)
+            // {
+            //     state.EntityManager.Instantiate(repo.SomeUnit);
+            // }
+            
             // var size = 10;
             // for (int y = 0; y < size; y++)
             // {
@@ -37,7 +43,8 @@ namespace Mine.Server
             //         // });
             //     }
             // }
-            state.Enabled = false;
+
         }
+        
     }
 }

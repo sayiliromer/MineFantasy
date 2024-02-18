@@ -1,21 +1,19 @@
 ﻿using Unity.Entities;
+using UnityEditor.SceneManagement;
 using UnityEngine;
 
 namespace Mine.ClientServer
 {
-    public class UnitAuthoring : MonoBehaviour
+    public class SomeUnitAuthoring : MonoBehaviour
     {
         public float Hp;
         public float MoveSpeed;
 
-        public class UnitBaker : Baker<UnitAuthoring>
+        public class UnitBaker : Baker<SomeUnitAuthoring>
         {
-            public override void Bake(UnitAuthoring authoring)
+            public override void Bake(SomeUnitAuthoring authoring)
             {
                 var entity = GetEntity(TransformUsageFlags.None);
-                
-                AddComponent<Unit>(entity);
-                AddComponent<PlayerInput>(entity);
                 AddComponent(entity, new Strength(1));
                 AddComponent(entity, new AgilityStat(1));
                 AddComponent(entity, new IntelligenceStat(1));

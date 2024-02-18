@@ -167,13 +167,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   DefaultGhostMode: 2
   SupportedGhostModes: 3
-  OptimizationMode: 1
+  OptimizationMode: 0
   Importance: 1
   prefabId: a00bee42598e54141a5e12a2f3839ac2
   HasOwner: 1
   SupportAutoCommandTarget: 1
   TrackInterpolationDelay: 0
-  GhostGroup: 0
+  GhostGroup: 1
   UsePreSerialization: 0
 --- !u!114 &4518322335463221685
 MonoBehaviour:
@@ -188,7 +188,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Hp: 100
-  HpRegen: 5
   MoveSpeed: 5
 --- !u!1 &3585634327031093657
 GameObject:

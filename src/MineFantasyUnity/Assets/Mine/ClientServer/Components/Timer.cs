@@ -8,6 +8,6 @@ namespace Mine.ClientServer
     /// </summary>
     public struct Timer : IComponentData
     {
-        [GhostField] public float Remaining;
+        [GhostField] public float Value;
     }
 }

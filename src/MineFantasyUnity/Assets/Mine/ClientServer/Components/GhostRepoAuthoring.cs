@@ -9,14 +9,12 @@ namespace Mine.ClientServer
     {
         public Entity NetworkedCube;
         public Entity PlayerUnit;
-        public Entity UnitStats;
     }
 
     public class GhostRepoAuthoring : MonoBehaviour
     {
         public GameObject NetworkedCube;
         public GameObject PlayerUnit;
-        public GameObject UnitStats;
 
         public class Baker : Baker<GhostRepoAuthoring>
         {

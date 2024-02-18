@@ -1,8 +1,8 @@
-﻿using System.Runtime.CompilerServices;
-using System.Runtime.InteropServices;
+﻿using System.Runtime.InteropServices;
 using Core;
 using Unity.Entities;
 using Unity.NetCode;
+// ReSharper disable UnassignedField.Global
 
 namespace Mine.ClientServer
 {
@@ -15,81 +15,148 @@ namespace Mine.ClientServer
     {
     }
 
-    public static class StatExtensions
-    {
-        [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static Stat ToStat<T>(this T iStat) where T : unmanaged, IStatComponent
-        {
-            return iStat.ReinterpretCast<T, Stat>();
-        }
-
-        [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static float ToFinalValue<T>(this T iStat) where T : unmanaged, IStatComponent
-        {
-            var stat = iStat.ReinterpretCast<T, Stat>();
-            return (stat.Base + stat.Add) * (1f + stat.Mul);
-        }
-    }
-
     /// <summary>
     /// Used as wrapper for other stats to make it easy to calculate final value
     /// </summary>
-    public struct Stat
+    [StructLayout(LayoutKind.Sequential)]
+    public struct FloatStat
     {
+        [GhostField(SendData = false)] 
         public float Base;
         public float Add;
         public float Mul;
+
+        public FloatStat(float baseValue)
+        {
+            Base = baseValue;
+            Add = 0;
+            Mul = 0;
+        }
+
+        public readonly float ToFinalValue()
+        {
+            return (Base + Add) * (1f + Mul);
+        }
+
+        public T ToStatComp<T>() where T : unmanaged, IStatComponent
+        {
+            return this.ReinterpretCast<FloatStat, T>();
+        }
+    }
+
+    [StructLayout(LayoutKind.Sequential)]
+    public struct DynamicFloatStat
+    {
+        [GhostField(SendData = false)]
+        public float Base;
+        public float Add;
+        public float Mul;
+        public float Current;
+        public DynamicFloatStat(float baseValue)
+        {
+            Base = baseValue;
+            Current = baseValue;
+            Add = 0;
+            Mul = 0;
+        }
+        public readonly float ToFinalValue()
+        {
+            return (Base + Add) * (1f + Mul);
+        }
+        
+        public T ToStatComp<T>() where T : unmanaged, IDynamicStatComponent
+        {
+            return this.ReinterpretCast<DynamicFloatStat, T>();
+        }
     }
     #endregion
+    
     #region StatComponents
 
     [StructLayout(LayoutKind.Sequential)]
-    public struct Health : IDynamicStatComponent
+    public struct Strength : IStatComponent
     {
-        public float BaseValue;
-        [GhostField] public float Add, Mul;
-        [GhostField] public float Current;
+        [GhostField]
+        public FloatStat Value;
 
-        public Health(float baseValue) : this()
+        public Strength(float value)
         {
-            BaseValue = baseValue;
-            Current = baseValue;
+            Value = new FloatStat(value);
+        }
+    }
+    
+    [StructLayout(LayoutKind.Sequential)]
+    public struct IntelligenceStat : IStatComponent
+    {
+        [GhostField]
+        public FloatStat Value;
+        
+        public IntelligenceStat(float value)
+        {
+            Value = new FloatStat(value);
+        }
+    }
+    
+    [StructLayout(LayoutKind.Sequential)]
+    public struct AgilityStat : IStatComponent
+    {
+        [GhostField]
+        public FloatStat Value;
+
+        public AgilityStat(float value)
+        {
+            Value = new FloatStat(value);
         }
     }
 
     [StructLayout(LayoutKind.Sequential)]
-    public struct HealthRegen : IStatComponent
+    public struct HealthStat : IDynamicStatComponent
     {
-        public float BaseValue;
-        [GhostField] public float Add, Mul;
+        [GhostField]
+        public DynamicFloatStat Value;
 
-        public HealthRegen(float baseValue) : this()
+        public HealthStat(float value) : this()
         {
-            BaseValue = baseValue;
+            Value = new DynamicFloatStat(value);
+        }
+    }
+    
+    [StructLayout(LayoutKind.Sequential)]
+    public struct ShieldStat : IDynamicStatComponent
+    {
+        [GhostField]
+        public DynamicFloatStat Value;
+        
+        public ShieldStat(float value)
+        {
+            Value = new DynamicFloatStat(value);
+        }
+    }
+    
+    [StructLayout(LayoutKind.Sequential)]
+    public struct ManaStat : IDynamicStatComponent
+    {
+        [GhostField]
+        public DynamicFloatStat Value;
+
+        public ManaStat(float value)
+        {
+            Value = new DynamicFloatStat(value);
         }
     }
 
     [StructLayout(LayoutKind.Sequential)]
-    public struct MoveSpeed : IStatComponent
+    public struct MoveSpeedStat : IStatComponent
     {
-        public float BaseValue;
-        [GhostField] public float Add, Mul;
+        [GhostField]
+        public FloatStat Value;
 
-        public MoveSpeed(float baseValue) : this()
+        public MoveSpeedStat(float baseValue) : this()
         {
-            BaseValue = baseValue;
-        }
-    }
-
-    [StructLayout(LayoutKind.Sequential)]
-    public struct Luck : IStatComponent
-    {
-        public float BaseValue;
-        [GhostField] public float Add, Mul;
-
-        public Luck(float baseValue) : this()
-        {
-            BaseValue = baseValue;
+            Value = new FloatStat()
+            {
+                Base = baseValue
+            };
         }
     }
 

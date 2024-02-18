@@ -1,9 +1,10 @@
 ﻿using Core;
 using Mine.ClientServer;
 using Unity.Entities;
-using Unity.Mathematics;
 using Unity.NetCode;
 using Unity.Transforms;
+using UnityEngine;
+using Random = Unity.Mathematics.Random;
 
 namespace Mine.Server
 {
@@ -40,6 +41,24 @@ namespace Mine.Server
                 {
                     PlayerUnit = player
                 });
+                // var gr = command.SetBuffer<GhostGroup>(player);
+                // for (int i = 0; i < 1000; i++)
+                // {
+                //     var intState = command.Instantiate(repo.IntState);
+                //     //command.AddComponent(intState, new GhostChildEntity());
+                //     // gr.Add(new GhostGroup()
+                //     // {
+                //     //     Value = intState
+                //     // });
+                // }
+                // for (int i = 0; i < 1; i++)
+                // {
+                //     var ability = command.Instantiate(repo.TestAbility);
+                //     command.SetComponent(ability, new Equipment()
+                //     {
+                //         Owner = player
+                //     });
+                // }
             }
 
             foreach (var (session, entity) in SystemAPI.Query<PlayerSession>().WithEntityAccess().WithNone<NetworkId>())
